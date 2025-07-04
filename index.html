@@ -18,8 +18,25 @@
 
     <h2>Consultas Agendadas</h2>
     <ul id="lista-consultas"></ul>
-  </div>
 
+    <!-- Modal de Reagendamento -->
+    <div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Reagendar Consulta</h2>
+        <form id="editar-form">
+        <input type="hidden" id="edit-id">
+        <input type="text" id="edit-paciente" required>
+        <input type="text" id="edit-medico" required>
+        <input type="datetime-local" id="edit-data" required>
+        <div class="modal-buttons">
+            <button type="submit">Salvar</button>
+            <button type="button" id="cancelar-btn">Cancelar</button>
+        </div>
+        </form>
+    </div>
+    </div>
+
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

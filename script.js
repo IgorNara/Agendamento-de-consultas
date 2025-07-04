@@ -44,14 +44,35 @@ function removerConsulta(id) {
 
 function editarConsulta(id) {
   const consulta = consultas.find(c => c.id === id);
-  const novoPaciente = prompt('Novo nome do paciente:', consulta.paciente);
-  const novoMedico = prompt('Novo nome do médico:', consulta.medico);
-  const novaData = prompt('Nova data (formato: yyyy-mm-ddThh:mm):', consulta.data);
+  if (!consulta) return;
 
-  if (novoPaciente && novoMedico && novaData) {
-    consulta.paciente = novoPaciente;
-    consulta.medico = novoMedico;
-    consulta.data = novaData;
-    renderConsultas();
-  }
+  document.getElementById('edit-id').value = consulta.id;
+  document.getElementById('edit-paciente').value = consulta.paciente;
+  document.getElementById('edit-medico').value = consulta.medico;
+  document.getElementById('edit-data').value = consulta.data;
+
+  document.getElementById('modal').classList.remove('hidden');
 }
+
+document.getElementById('cancelar-btn').addEventListener('click', () => {
+  document.getElementById('modal').classList.add('hidden');
+});
+
+document.getElementById('editar-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const id = Number(document.getElementById('edit-id').value);
+  const paciente = document.getElementById('edit-paciente').value;
+  const medico = document.getElementById('edit-medico').value;
+  const data = document.getElementById('edit-data').value;
+
+  const consulta = consultas.find(c => c.id === id);
+  if (consulta) {
+    consulta.paciente = paciente;
+    consulta.medico = medico;
+    consulta.data = data;
+  }
+
+  document.getElementById('modal').classList.add('hidden');
+  renderConsultas();
+});
