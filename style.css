@@ -53,9 +53,6 @@ li {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 }
 
 li button {
