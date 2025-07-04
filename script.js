@@ -27,9 +27,9 @@ function renderConsultas() {
   consultas.forEach(c => {
     const li = document.createElement('li');
     li.innerHTML = `
-      <strong>Paciente:</strong> ${c.paciente} <br>
-      <strong>Médico:</strong> ${c.medico} <br>
-      <strong>Data:</strong> ${new Date(c.data).toLocaleString()} <br>
+      <p><strong>Paciente:</strong> ${c.paciente} </p>
+      <p><strong>Médico:</strong> ${c.medico} </p> 
+      <p><strong>Data:</strong> ${new Date(c.data).toLocaleString()} </p> 
       <button onclick="editarConsulta(${c.id})" class="edit">Reagendar</button>
       <button onclick="removerConsulta(${c.id})">Cancelar</button>
     `;
